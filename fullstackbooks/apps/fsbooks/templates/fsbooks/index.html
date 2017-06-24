@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <div class="tableborder">
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Author</th>
+            </tr>
+            {% for show in books %}
+            <tr>
+
+                <td>{{ show.id }}</td>
+                <td>{{ show.title }}</td>
+                <td>{{ show.category }}</td>
+                <td>{{ show.author }}</td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+
+    <form action="/show" method="POST">
+        {% csrf_token %}
+        <label for="">Title</label>
+        <input type="text" name="title">
+
+        <label for="">Category</label>
+        <input type="text" name="category">
+
+        <label for="">Author</label>
+        <input type="text" name="author">
+
+        <input type="submit" value="Enter Books">
+    </form>
+</body>
+
+</html>

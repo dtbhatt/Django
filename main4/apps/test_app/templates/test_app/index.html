@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    {%for blog in blogs %}
+    <h5>{{blog.title}}</h5>
+    <p>{{blog.blog}}</p>
+
+    {% for comment in blog.comment_set.all %} {{comment.comment}} {% endfor %}
+    <form action="/comments/{{blog.id}}" method="POST">
+        {% csrf_token %}
+
+        <textarea name="comment" rows="8" cols="40"></textarea>
+        <input type="submit" value="Enter Comment On This Blog">
+    </form>
+    {% endfor %}
+
+
+    <form action="/blogs" method="POST">
+        {% csrf_token %}
+        <label for="">Title</label>
+        <input type="text" name="title">
+        <textarea name="blog" rows="8" cols="40"></textarea>
+        <input type="Submit" value="Enter Blog">
+
+    </form>
+
+
+</body>
+
+</html>

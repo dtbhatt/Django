@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load staticfiles %}
+    <!-- The line above tells Django to be ready to listen for static files -->
+    <link rel="stylesheet" href="{% static 'distime/css/index.css' %}" media="screen" title="no title" charset="utf-8">
+
+</head>
+
+<body>
+    <h1> Current Data and Time</h1>
+    <strong>
+         <span id="time">{{date}}</span>
+         {{time}}
+    </strong>
+</body>
+
+</html>
