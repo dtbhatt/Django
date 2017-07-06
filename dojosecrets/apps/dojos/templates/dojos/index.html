@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> Dojo Secret Start</h1>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+    </ul>
+    {% endif %}
+
+
+    <div class="register" align="justify" border="1">
+        <h2>Register</h2>
+
+        <form action="/register" method="POST">
+            {% csrf_token %}
+            <p>First Name: <input type="text" name="firstName"></p>
+            <p>Last Name: <input type="text" name="lastName"></p>
+            <p>Email: <input type="text" name="email"></p>
+            <p>Password: <input type="password" name="password"></p>
+            <p>Confirm Password: <input type="password" name="confirmPassword"></p>
+            <p><input type="submit" value="Submit"></p>
+        </form>
+    </div>
+
+    <div class="login" align="justify" border="1">
+        <h2>Login</h2>
+        <form action="/login" method- "POST">
+            {% csrf_token %}
+            <p>Email: <input type="text" name="email"></p>
+            <p>Password: <input type="password" name="password"></p>
+            <p><input type="submit" value="Submit"></p>
+        </form>
+    </div>
+
+
+    </form>
+
+
+
+</body>
+
+</html>
